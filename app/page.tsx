@@ -1,7 +1,13 @@
+"use client"
 import Button from "@/components/Button";
 import DropOptions from "@/components/DropDown";
+import useQuiz from "./store";
 
 export default function Home() {
+  const quizConfig = useQuiz((state: any) => state.config)
+  const addNumberOfQuestions = useQuiz((state: any) => state.addNumberOfQuestions);
+  
+  
   return (
     <section className="flex flex-col justify-center items-center my-10">
       <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
@@ -20,6 +26,7 @@ export default function Home() {
           </label>
           <input
             type="number"
+            onChange={(e) => addNumberOfQuestions(e.target.value)}
             defaultValue={10}
             min={0}
             max={20}
