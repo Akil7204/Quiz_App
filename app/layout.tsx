@@ -8,10 +8,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
-  quiz
+
 }: Readonly<{
-  children: React.ReactNode,
-  quiz: React.ReactNode
+  children: React.ReactNode
 }>) {
 
   const config = useQuiz((state:any) => state.config)
