@@ -8,6 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
 import { useEffect, useState } from "react";
 
 type CategoryType = {
@@ -19,6 +20,7 @@ const Type = ["boolean", "multiple"];
 const level = ["easy", "medium", "hard"];
 
 export default function DropOptions() {
+
   const [Categories, setCategories] = useState<CategoryType[]>([]);
   const addCategory = useQuiz((state: any) => state.addCategory);
   const config = useQuiz((state: any) => state.config);
