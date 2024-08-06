@@ -6,16 +6,15 @@ import Quiz from "./@quiz/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function RootLayout({
-  children,
+interface LayoutProps {
+  children: React.ReactNode;
+  quiz: boolean; // Add any other properties if necessary
+}
 
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-
-  const config = useQuiz((state:any) => state.config)
+export default function RootLayout({ children }: LayoutProps) {
+  const config = useQuiz((state: any) => state.config);
   
-  let render = config.status === "start"? <Quiz /> : children;
+  let render = config.status === "start" ? <Quiz /> : children;
 
   return (
     <html lang="en">
